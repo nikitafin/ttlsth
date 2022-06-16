@@ -10,6 +10,20 @@
             "cwd": "${workspaceRoot}",
             "request": "launch",
             "program": "${workspaceRoot}/build/2.1.remove_dups.exe"
+        },
+        {
+            "name": "2.2. Remove K, wsl",
+            "type": "cppdbg",
+            "cwd": "${workspaceRoot}",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/2.2.k_th_to_last",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
         }
     ]
 }
