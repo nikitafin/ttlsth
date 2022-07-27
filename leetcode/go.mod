@@ -1,3 +1,3 @@
-module leetcode/wix
+module leetcode
 
 go 1.18
