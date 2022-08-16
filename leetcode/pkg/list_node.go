@@ -1,9 +1,15 @@
 package pkg
 
+import "fmt"
+
 // ListNode Definition for singly-linked list.
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func (l ListNode) String() string {
+	return fmt.Sprint(l.Val)
 }
 
 func ListNodeFromSlice(input []int) *ListNode {
@@ -40,4 +46,15 @@ func ListNodesEqual(lhs *ListNode, rhs *ListNode) bool {
 	}
 
 	return true
+}
+
+func ReverseList(head *ListNode) *ListNode {
+	var rev *ListNode
+	for head != nil {
+		temp := head.Next
+		head.Next = rev
+		rev = head
+		head = temp
+	}
+	return rev
 }

@@ -53,3 +53,12 @@ func TestListNodesEqual3(t *testing.T) {
 		t.Error("Invalid")
 	}
 }
+
+func TestReverseList(t *testing.T) {
+	head := ListNodeFromSlice([]int{1, 2, 3, 4, 5})
+	exp := ListNodeFromSlice([]int{5, 4, 3, 2, 1})
+	res := ReverseList(head)
+	if !ListNodesEqual(res, exp) {
+		t.Error("NotEq")
+	}
+}

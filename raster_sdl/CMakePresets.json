@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23
+  },
+  "configurePresets": [
+    {
+      "name": "ConfBase",
+      "description": "General settings that apply to all configurations",
+      "hidden": true,
+      "generator": "Ninja",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "Win32_Debug",
+      "description": "Target Windows with the msvc compiler, debug build type",
+      "inherits": "ConfBase",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ENABLE_DEVELOPER_MODE": "ON"
+      }
+    },
+    {
+      "name": "Win32_Release",
+      "description": "Target Windows with the msvc compiler, release build type",
+      "inherits": "ConfBase",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "ENABLE_DEVELOPER_MODE": "ON"
+      }
+    }
+  ]
+}
