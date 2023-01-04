@@ -1,0 +1,3 @@
+[submodule "raster_sdl/shared/sdl2"]
+	path = raster_sdl/shared/sdl2
+	url = https://github.com/libsdl-org/SDL
