@@ -3,4 +3,4 @@ project(ods)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ods main.cpp)
+add_subdirectory(ch1)
