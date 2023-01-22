@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeSharedSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug-cl64" ENABLED="true" GENERATION_DIR="build/cmake-build-debug-cl64" CONFIG_NAME="Debug" />
-      <configuration PROFILE_NAME="Debug-WSL" ENABLED="true" GENERATION_DIR="build/cmake-build-debug-wsl" CONFIG_NAME="Debug" TOOLCHAIN_NAME="WSL" GENERATION_OPTIONS="-G Ninja" />
-      <configuration PROFILE_NAME="RelWithDebInfo-cl64" ENABLED="true" GENERATION_DIR="build/cmake-build-relwithdebinfo-cl64" CONFIG_NAME="RelWithDebInfo" />
-      <configuration PROFILE_NAME="RelWithDebInfo-WSL" ENABLED="true" GENERATION_DIR="build/cmake-build-relwithdebinfo-wsl" CONFIG_NAME="RelWithDebInfo" TOOLCHAIN_NAME="WSL" GENERATION_OPTIONS="-G Ninja" />
+      <configuration PROFILE_NAME="Debug-cl64" ENABLED="false" GENERATION_DIR="build/cmake-build-debug-cl64" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug-WSL" ENABLED="true" GENERATION_DIR="build/cmake-build-debug-wsl" CONFIG_NAME="Debug" TOOLCHAIN_NAME="WSL" GENERATION_OPTIONS="-G Ninja -DCMAKE_CXX_FLAGS=&quot;--coverage&quot;" />
+      <configuration PROFILE_NAME="RelWithDebInfo-cl64" ENABLED="false" GENERATION_DIR="build/cmake-build-relwithdebinfo-cl64" CONFIG_NAME="RelWithDebInfo" />
+      <configuration PROFILE_NAME="RelWithDebInfo-WSL" ENABLED="false" GENERATION_DIR="build/cmake-build-relwithdebinfo-wsl" CONFIG_NAME="RelWithDebInfo" TOOLCHAIN_NAME="WSL" GENERATION_OPTIONS="-G Ninja" />
     </configurations>
   </component>
 </project>

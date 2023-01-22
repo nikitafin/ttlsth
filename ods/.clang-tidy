@@ -1,4 +1,4 @@
-Checks: '*,-abseil-*,-altera-*,-android-*,-darwin-*,-fuchsia-*'
+Checks: '*,-abseil-*,-altera-*,-android-*,-darwin-*,-fuchsia-*,-llvm-*,-llvmlibc-*,-modernize-*'
 
 CheckOptions:
   # Struct

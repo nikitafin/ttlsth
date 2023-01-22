@@ -1,0 +1,10 @@
+[package]
+name = "ods-rs"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+path = "bin/usage.rs"
+name = "uasge"
+
+[dependencies]

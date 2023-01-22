@@ -10,7 +10,8 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 enable_testing()
 
-
 add_subdirectory(shared/googletest)
 
 add_subdirectory(ods)
+
+#install()
