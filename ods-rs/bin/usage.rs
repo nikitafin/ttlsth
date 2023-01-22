@@ -1,4 +1,4 @@
-use ods_rs::implementation::arraystack::ArrayStuck;
+use ods_rs::implementation::arraystack::ArrayStack;
 
 trait A: Sized {
     fn a1(&self);
@@ -56,7 +56,7 @@ impl Shape for Circle {
 }
 
 fn main() {
-    let st = ArrayStuck::<u8>::new(10);
+    let st = ArrayStack::<u8>::new(10);
     assert_eq!(st.data.capacity(), 10);
     let st1: u8 = 10;
     println!("usage {st1}");

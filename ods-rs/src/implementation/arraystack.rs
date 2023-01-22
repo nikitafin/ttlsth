@@ -2,11 +2,11 @@ use std::fmt::Display;
 
 use crate::interface::list::List;
 
-pub struct ArrayStuck<T: Copy + Display> {
-    pub data: Vec<T>,
+pub struct ArrayStack<T: Copy + Display> {
+    data: Vec<T>,
 }
 
-impl<T: Copy + Display> ArrayStuck<T> {
+impl<T: Copy + Display> ArrayStack<T> {
     // TODO(Nikita): if no memory ?
     pub fn new(sz: usize) -> Self {
         Self {
@@ -15,12 +15,30 @@ impl<T: Copy + Display> ArrayStuck<T> {
     }
 }
 
+impl<T: Copy + Display> Clone for ArrayStack<T> {
+    fn clone(&self) -> Self {
+        Self {
+            data: self.data.clone(),
+        }
+    }
+}
 
-
-impl<T: Copy + Display> List<T> for ArrayStuck<T> {
+impl<T: Copy + Display> List<T> for ArrayStack<T> {
     type Idx = isize;
 
-    fn add(i: Self::Idx, value: T) {
+    fn add(&self, i: Self::Idx, value: T) {
         println!("{i}, {value}");
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn arraystack_clone_test() {
+        let v1 = ArrayStack::<u8>::new(10);
+        let test_v = Vec::<u8>::with_capacity(10);
+        assert_eq!(v1.data, test_v);
     }
 }

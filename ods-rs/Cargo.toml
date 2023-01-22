@@ -7,4 +7,8 @@ edition = "2021"
 path = "bin/usage.rs"
 name = "uasge"
 
+[[bin]]
+path = "bin/temp.rs"
+name = "temp"
+
 [dependencies]
