@@ -11,4 +11,9 @@ name = "uasge"
 path = "bin/temp.rs"
 name = "temp"
 
+[[bin]]
+path = "bin/ch1/ex11.rs"
+name = "ex11"
+
+
 [dependencies]
