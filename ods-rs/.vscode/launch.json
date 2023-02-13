@@ -7,6 +7,23 @@
         {
             "type": "lldb",
             "request": "launch",
+            "name": "Launch",
+            "cwd": "${workspaceFolder}",
+            "cargo": {
+                "args": [
+                    "run",
+                    "--bin",
+                    "ex11"
+                ]
+            },
+            "args": [
+                "<",
+                "${workspaceFolder}/data/strings"
+            ]
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
             "name": "Debug unit tests in library 'ods-rs'",
             "cargo": {
                 "args": [
