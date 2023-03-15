@@ -302,3 +302,11 @@ target/*
 ./ods-rs/target
 target
 ods-rs/target
+.idea/
+.PVS-Stuio/
+__*
+Win32/
+Win64/
+*.local
+.vs/
+*.pdb
