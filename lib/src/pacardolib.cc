@@ -15,11 +15,6 @@ namespace pacardolib::types {
     static_assert(sizeof(i64) == 8, "Invalid i64 sizeof");
 } // namespace pacardolib::types
 
-namespace {
-    template <typename T>
-    constexpr auto
-}
-
 namespace pacardolib {
 
     bool is_prime(types::u64 n) noexcept {
@@ -30,11 +25,7 @@ namespace pacardolib {
             return true;
         }
 
-#if 0
-        double const sq = std::ceil(std::sqrt(n));
-        assert(sq < std::numeric_limits<types::u64>::max());
-#endif
-        for (types::u64 i = 2, sz = static_cast<types::u64>(sq); i <= sz; ++i) { // NOLINT
+        for (types::u64 i = 2; i * i <= n; ++i) {
             if (n % i == 0) {
                 return false;
             }
@@ -43,19 +34,20 @@ namespace pacardolib {
         return true;
     }
 
-    unsigned long long prime(types::u64 n) noexcept {
+    types::u64 prime(types::u64 n) noexcept {
         if (n == 1) {
             return 2;
         }
-        if (n == 2) {
-            return 3;
+        types::u64 current_num = 3;
+        types::u64 count       = 1;
+
+        while (count < n) {
+            if (current_num % 2 != 0 && is_prime(current_num)) {
+                ++count;
+            }
+            current_num += 2;
         }
 
-        unsigned long long current_num = 3;
-        while (n > 0) {
-            return current_num;
-        }
-
-        return 0;
+        return current_num - 2;
     }
 } // namespace pacardolib

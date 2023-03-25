@@ -55,3 +55,43 @@ TEST(IsPrimeTest, Test12) {
 TEST(IsPrimeTest, Test13) {
     EXPECT_FALSE(is_prime(std::numeric_limits<types::u64>::max()));
 }
+
+TEST(NthPrimeTest, Test1) {
+    EXPECT_EQ(prime(1), 2);
+}
+
+TEST(NthPrimeTest, Test2) {
+    EXPECT_EQ(prime(2), 3);
+}
+
+TEST(NthPrimeTest, Test5) {
+    EXPECT_EQ(prime(5), 11);
+}
+
+TEST(NthPrimeTest, Test10) {
+    EXPECT_EQ(prime(10), 29);
+}
+
+TEST(NthPrimeTest, Test50) {
+    EXPECT_EQ(prime(50), 229);
+}
+
+TEST(NthPrimeTest, Test100) {
+    EXPECT_EQ(prime(100), 541);
+}
+
+TEST(NthPrimeTest, Test200) {
+    EXPECT_EQ(prime(200), 1223);
+}
+
+TEST(NthPrimeTest, Test500) {
+    EXPECT_EQ(prime(500), 3571);
+}
+
+TEST(NthPrimeTest, Test1000) {
+    EXPECT_EQ(prime(1000), 7919);
+}
+
+TEST(NthPrimeTest, Test5000) {
+    EXPECT_EQ(prime(5000), 48611);
+}
