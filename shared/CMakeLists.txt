@@ -1,0 +1,1 @@
+pgp_add_shared(googletest-cmake googletest)

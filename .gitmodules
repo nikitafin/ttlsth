@@ -1,9 +1,9 @@
 [submodule "raster_sdl/shared/sdl2"]
 	path = raster_sdl/shared/sdl2
 	url = https://github.com/libsdl-org/SDL
-[submodule "googletest"]
-	path = googletest
-	url = https://github.com/google/googletest
 [submodule "shared/googletest"]
 	path = shared/googletest
 	url = https://github.com/google/googletest
+[submodule "shared/ut"]
+	path = shared/ut
+	url = https://github.com/boost-ext/ut.git

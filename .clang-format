@@ -1,0 +1,33 @@
+AllowAllParametersOfDeclarationOnNextLine: true
+AlignConsecutiveAssignments:
+  AcrossComments: true
+  AcrossEmptyLines: false
+  AlignCompound: true
+  PadOperators: true
+  Enabled: true
+AlignOperands: true
+AlignTrailingComments: true
+BreakBeforeBinaryOperators: None
+ContinuationIndentWidth: 4
+IndentWidth: 4
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: All
+ReflowComments: true
+SortIncludes: CaseInsensitive
+Standard: Latest
+TabWidth: 4
+UseTab: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AlwaysBreakAfterReturnType: TopLevel
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+ColumnLimit: 120
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+IndentCaseLabels: true
+PointerAlignment: Right
+SpaceBeforeAssignmentOperators: true
+SpacesBeforeTrailingComments: 1

@@ -1,14 +1,16 @@
 cmake_minimum_required(VERSION 3.24)
 
 project(ttlsth)
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+option(ENABLE_TESTING "Enable unit test" ON)
+# TODO(nikitafin): Use ut as module instead of hpp
+option(BOOST_UT_DISABLE_MODULE "Enable boost::ut module" ON)
 
 # Need MD for cxx modules
+# TODO(nikitafin): use std instead msvc experimental modules
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Collect all of the .cmake files in the cmake directory
 file(GLOB CMAKE_FILES "${CMAKE_CURRENT_LIST_DIR}/cmake/*.cmake")
@@ -37,5 +39,5 @@ endif ()
 
 enable_testing()
 
-# add_subdirectory(shared/googletest)
+add_subdirectory(shared)
 add_subdirectory(programming-challenges)
