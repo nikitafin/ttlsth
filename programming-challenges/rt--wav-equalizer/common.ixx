@@ -61,7 +61,7 @@ export namespace Pgp {
 
         std::array<char, DataTypeSize> Data;
         if (!Input.read(Data.data(), DataTypeSize)) {
-            std::nullopt;
+            return std::nullopt;
         }
         std::reverse(Data.begin(), Data.end());
 

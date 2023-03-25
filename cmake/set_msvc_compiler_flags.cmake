@@ -18,9 +18,13 @@ macro(set_msvc_compiler_flags)
                 /Zi # Generates debugging information that can be used by a debugger
                 /sdl # Runtime security checks
                 /RTC1 # Enables run-time error checks
+                /fsanitize=undefined
+        )
+        add_link_options(
+                /DEBUG
         )
 
-        add_compile_definitions("_DEBUG")
+        add_compile_definitions("_DEBUG" "DEBUG")
     else ()
         add_compile_options(
                 /O2 # Enable maximum optimization
