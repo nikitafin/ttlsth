@@ -40,4 +40,5 @@ endif ()
 enable_testing()
 
 add_subdirectory(shared)
+add_subdirectory(lib)
 add_subdirectory(programming-challenges)
