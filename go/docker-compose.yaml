@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+  hydra:
+    image: oryd/hydra:v2.1.1
+    ports:
+      - "4444:4444" # Public port
+      - "4445:4445" # Admin port
+      - "5555:5555" # Port for hydra token user
+    command: serve all --dev
+    environment:
+      - DSN=postgres://hydra:secret@postgresd:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+      - HYDRA_ADMIN_URL=http://hydra:4445
+      - SECRETS_SYSTEM=super_system_secret1
+      - URLS_SELF_ISSUER=https://localhost:4444/
+      - URLS_CONSENT=http://localhost:8020/consent
+      - URLS_LOGIN=http://localhost:8020/login
+    restart: unless-stopped
+    depends_on:
+      - hydra-migrate
+  hydra-migrate:
+    image: oryd/hydra:v2.1.1
+    environment:
+      - DSN=postgres://hydra:secret@postgresd:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+    depends_on:
+      - postgresd
+    command: migrate sql -e --yes
+    restart: on-failure
+  client_app:
+    image: oryd/hydra:v2.1.1
+    command: |
+      create client 
+      --skip-tls-verify
+      --name app
+      --secret some-secret
+      --grant-type authorization_code,refresh_token,client_credentials
+      --response-type code
+      --scope openid,offline,role.admin,role.user,role.manager
+      --redirect-uri http://127.0.0.1:9010/callback
+    environment:
+      - ORY_SDK_URL=http://hydra:4445
+  postgresd:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=hydra
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=hydra
