@@ -311,3 +311,4 @@ Win64/
 .vs/
 *.pdb
 build
+Cargo.lock
