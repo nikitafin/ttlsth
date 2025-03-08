@@ -1,0 +1,32 @@
+## ===--------------------------------------------------------------------=== ##
+# PrintSummary - print all info in one place
+include_guard(GLOBAL)
+message(STATUS "Load user CMake module: ${CMAKE_CURRENT_LIST_FILE}")
+
+message(STATUS "Build Info:")
+message(STATUS "    Host System                : ${CMAKE_HOST_SYSTEM}")
+message(STATUS "    Host System Name           : ${CMAKE_HOST_SYSTEM_NAME}")
+message(STATUS "    Host System Processor      : ${CMAKE_HOST_SYSTEM_PROCESSOR}")
+message(STATUS "    Host System Version        : ${CMAKE_HOST_SYSTEM_VERSION}")
+message(STATUS)
+message(STATUS "    Build Type                 : ${CMAKE_BUILD_TYPE}")
+message(STATUS "    Generator                  : ${CMAKE_GENERATOR}")
+message(STATUS "    CXX Compiler               : ${CMAKE_CXX_COMPILER}")
+message(STATUS "    Compiler Version           : ${CMAKE_CXX_COMPILER_VERSION}")
+message(STATUS "    Compiler Standard          : ${CMAKE_CXX_STANDARD}")
+message(STATUS "    Compiler Standard Required : ${CMAKE_CXX_STANDARD_REQUIRED}")
+message(STATUS "    Compiler Extensions        : ${CMAKE_CXX_EXTENSIONS}")
+message(STATUS "    Linker                     : ${CMAKE_CXX_COMPILER_LINKER}")
+
+if(MSVC)
+    message(STATUS)
+    message(STATUS "    MSVC Version               : ${MSVC_VERSION}")
+    message(STATUS "    MSVC Toolset               : ${MSVC_TOOLSET_VERSION}")
+    message(STATUS)
+endif()
+
+message(STATUS "    Default compiler options   : ${PROJECT_DEFAULT_COMPILE_OPTION}")
+message(STATUS "    Project compiler options   : ${PROJECT_COMPILE_OPTIONS}")
+message(STATUS)
+message(STATUS "    Default linker options     : ${PROJECT_DEFAULT_LINK_OPTIONS}")
+message(STATUS "    Project linker options     : ${PROJECT_LINK_OPTIONS}")
