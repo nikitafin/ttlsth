@@ -1,0 +1,72 @@
+{
+    "version": 8,
+    "include": [
+        "util/CMakeConfigure.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "conf-clang-debug",
+            "displayName": "Configuration Clang(debug)",
+            "description": "Debug configuration with clang compiler",
+            "inherits": [
+                "conf-base",
+                "conf-clang",
+                "conf-debug"
+            ]
+        },
+        {
+            "name": "conf-clang-release",
+            "displayName": "Configuration Clang(release)",
+            "description": "Release configuration with clang compiler",
+            "inherits": [
+                "conf-base",
+                "conf-clang",
+                "conf-release"
+            ]
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "build-clang-debug",
+            "displayName": "Build Clang(debug)",
+            "configurePreset": "conf-clang-debug",
+            "verbose": true
+        },
+        {
+            "name": "build-clang-release",
+            "displayName": "Build Clang(release)",
+            "configurePreset": "conf-clang-release",
+            "verbose": true
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "work-clang-debug",
+            "description": "Debug workflow for clang compiler",
+            "steps": [
+                {
+                    "name": "conf-clang-debug",
+                    "type": "configure"
+                },
+                {
+                    "name": "build-clang-debug",
+                    "type": "build"
+                }
+            ]
+        },
+        {
+            "name": "work-clang-release",
+            "description": "Release workflow for clang compiler",
+            "steps": [
+                {
+                    "name": "conf-clang-release",
+                    "type": "configure"
+                },
+                {
+                    "name": "build-clang-release",
+                    "type": "build"
+                }
+            ]
+        }
+    ]
+}

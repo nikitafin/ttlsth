@@ -1,0 +1,97 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "conf-base",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}",
+            "hidden": true,
+            "warnings": {
+                "deprecated": true,
+                "unusedCli": true,
+                "uninitialized": true,
+                "dev": true
+            }
+        },
+        {
+            "name": "conf-cl",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "cl"
+            }
+        },
+        {
+            "name": "conf-clang-linux",
+            "hidden": true,
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "-stdlib=libc++",
+                "CMAKE_EXE_LINKER_FLAGS": "-stdlib=libc++",
+                "CMAKE_LINKER_TYPE": "LLD"
+            }
+        },
+        {
+            "name": "conf-clang-windows",
+            "hidden": true,
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "cacheVariables": {
+            }
+        },
+        {
+            "name": "conf-clang",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++"
+            },
+            "inherits": [
+                "conf-clang-linux",
+                "conf-clang-windows"
+            ]
+        },
+        {
+            "name": "conf-debug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "conf-release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "conf-dev",
+            "hidden": true,
+            "cacheVariables": {
+                "PROJECT_SANITIZER_ADDRESS_ENABLED": "ON"
+            },
+            "inherits": [
+                "conf-base",
+                "conf-debug"
+            ]
+        },
+        {
+            "name": "conf-sanitizers",
+            "hidden": true,
+            "cacheVariables": {
+                "PROJECT_SANITIZER_ADDRESS_ENABLED": "ON"
+            },
+            "inherits": [
+                "conf-base",
+                "conf-release"
+            ]
+        }
+    ]
+}
